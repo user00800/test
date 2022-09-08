@@ -23,6 +23,7 @@ use yii\db\ActiveRecord;
  * @property Author              $author
  * @property-read mixed          $users
  * @property-read null|BooksUses $lastPickuped
+ * @property-read bool           $isPickuped
  * @property BooksUses[]         $booksUses
  */
 class Book extends ActiveRecord

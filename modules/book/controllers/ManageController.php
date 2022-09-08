@@ -8,6 +8,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class ManageController extends Controller
 {
@@ -26,7 +27,7 @@ class ManageController extends Controller
         ];
     }
 
-    public function actionPickup(int $id)
+    public function actionPickup(int $id): Response
     {
         if (($model = $this->findModel($id)) !== null) {
             (new ManageBook($model))->pickup();
@@ -35,7 +36,7 @@ class ManageController extends Controller
         return $this->redirect(['default/index']);
     }
 
-    public function actionReturn(int $id)
+    public function actionReturn(int $id): Response
     {
         if (($model = $this->findModel($id)) !== null) {
             (new ManageBook($model))->return();
@@ -44,7 +45,7 @@ class ManageController extends Controller
         return $this->redirect(['default/index']);
     }
 
-    protected function findModel($id)
+    protected function findModel($id): ?Book
     {
         if (($model = Book::findOne(['id' => $id])) !== null) {
             return $model;

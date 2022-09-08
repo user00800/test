@@ -16,7 +16,8 @@ use yii\db\ActiveRecord;
  * @property string      $date_birth
  * @property string|null $date_death
  *
- * @property Book[]     $books
+ * @property-read string $fullName
+ * @property Book[]      $books
  */
 class Author extends ActiveRecord
 {
